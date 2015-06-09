@@ -34,6 +34,7 @@ server.mount_proc '/comments.json' do |req, res|
   # always return json
   res['Content-Type'] = 'application/json'
   res['Cache-Control'] = 'no-cache'
+  res['Access-Control-Allow-Origin'] = '*'
   res.body = JSON.generate(comments)
 end
 
