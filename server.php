@@ -31,9 +31,9 @@ function routeRequest()
         }
         header('Content-Type: application/json');
         header('Cache-Control: no-cache');
+        header('Access-Control-Allow-Origin', '*');
         echo $comments;
     } else {
         return false;
     }
 }
-
