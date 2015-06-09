@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/comments.json', function(req, res) {
   fs.readFile('comments.json', function(err, data) {
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.send(data);
   });
 });
@@ -36,6 +37,7 @@ app.post('/comments.json', function(req, res) {
     fs.writeFile('comments.json', JSON.stringify(comments, null, 4), function(err) {
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Cache-Control', 'no-cache');
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.send(JSON.stringify(comments));
     });
   });
